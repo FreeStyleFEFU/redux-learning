@@ -1,0 +1,48 @@
+// Disable this rule because it don't support Sass module system (I mean `@use`)
+// stylelint-disable primer/no-unused-vars
+
+/* Colors
+ ========================================================================== */
+$color-black: #483a40;
+$color-gray: #808a94;
+$color-green: #2faa37;
+$color-pink: #cb3161;
+
+/* Fonts weights
+ ========================================================================== */
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+/* Base
+ ========================================================================== */
+$root-font-size: 16px;
+
+/* Container
+ ========================================================================== */
+$container-max-width: 1248px !default;
+$container-small-max-width: 900px !default;
+$container-padding-horizontal: 16px !default;
+$container-padding-horizontal-s: 24px !default;
+$container-padding-horizontal-m: 32px !default;
+
+/* Breakpoints
+ ========================================================================== */
+$breakpoint-xxsmall: 375px !default;
+$breakpoint-xsmall: 425px !default;
+$breakpoint-small: 640px !default;
+$breakpoint-semi-medium: 770px !default;
+$breakpoint-medium: 900px !default;
+$breakpoint-semi-large: 1100px !default;
+$breakpoint-large: 1200px !default;
+$breakpoint-xlarge: 1440px !default;
+$breakpoint-xxlarge: 1920px !default;
+
+/* Transitions
+ ========================================================================== */
+$transition-default-duration: 0.2s !default;
+$transition-default-timing-function: ease-out !default;
+$transition-default: $transition-default-duration $transition-default-timing-function !default;
+
