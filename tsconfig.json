@@ -1,26 +1,64 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "strict": true,
+    "jsx": "preserve",
     "lib": [
       "dom",
-      "dom.iterable",
-      "esnext"
+      "dom.iterable"
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "noEmit": true,
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@domains/*": [
+        "./src/domains/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@mock/*": [
+        "./src/mock/*"
+      ],
+      "@stores/*": [
+        "./src/stores/*"
+      ],
+      "@views/*": [
+        "./src/views/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ]
+    }
   },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/server"
+  ],
   "include": [
-    "src"
+    "**/*.ts",
+    "**/*.tsx"
   ]
 }
