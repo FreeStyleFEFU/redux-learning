@@ -24,33 +24,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "paths": {
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@domains/*": [
-        "./src/domains/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@mock/*": [
-        "./src/mock/*"
-      ],
-      "@stores/*": [
-        "./src/stores/*"
-      ],
-      "@views/*": [
-        "./src/views/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ]
-    }
+    "isolatedModules": true
   },
   "exclude": [
     "node_modules",

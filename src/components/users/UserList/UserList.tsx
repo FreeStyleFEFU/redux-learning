@@ -1,11 +1,11 @@
 import { FC, useEffect } from 'react';
 
-import { User } from '../../types/user';
+import { User } from '../../../types/user';
 
-import { useTypedSelector } from '@hooks/use-typed-selector';
-import { useActions } from '@hooks/use-actions';
+import { useTypedSelector } from '../../../hooks/use-typed-selector';
+import { useActions } from '../../../hooks/use-actions';
 
-import { Spinner } from '../Spinner/Spinner';
+import { Spinner } from '../../common/Spinner/Spinner';
 
 import styles from './UserList.module.scss';
 

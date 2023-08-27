@@ -1,9 +1,12 @@
 import { FC } from 'react';
 
-import { UserList } from '@components/UserList/UserList';
+import { UserList } from '../../components/users/UserList/UserList';
+import { Container } from '../../components/common/Container/Container';
 
 export const Users: FC = () => (
     <div>
-        <UserList />
+        <Container>
+            <UserList />
+        </Container>
     </div>
 );

@@ -1,0 +1,23 @@
+@use 'src/styles/media' as media;
+@use 'src/styles/utils' as utils;
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @include media.vw-small-down {
+    margin-bottom: 26px;
+  }
+}
+
+.title {
+  font-size: utils.to-rem(32px);
+  padding: 16px 0;
+
+  @include media.vw-small-down {
+    font-size: utils.to-rem(16px);
+    padding: 0;
+  }
+}
