@@ -1,0 +1,36 @@
+@use 'sass:math' as math;
+@use 'src/styles/variables' as variables;
+@use 'src/styles/media' as media;
+
+/// Calculate slide width and add horizontal gutter
+//
+/// @param {Number} $count - Count of slide per row
+/// @param {Number} $gutter - Horizontal gutter between slides in px
+///
+/// @returns {Number} Returns slide width in relative width
+/// @example: calc(100% / 4 + Npx)
+@function slideSize($count, $gutter) {
+  @return calc(#{math.div(100%, $count)} + #{math.div($gutter, $count)});
+}
+
+/// @param {Number} $count - Count of slide per row
+/// @param {Number} $gutter - Horizontal gutter between slides in px
+@mixin calcSlide($count, $gutter) {
+  padding-right: $gutter;
+  width: slideSize($count, $gutter);
+
+  &:last-child {
+    margin-right: -$gutter;
+  }
+}
+
+@mixin calcVerticalSlide($count, $gutter) {
+  padding-top: 0;
+  padding-bottom: $gutter;
+  height: slideSize($count, $gutter);
+  max-height: unset;
+
+  &:last-child {
+    margin-bottom: -$gutter;
+  }
+}

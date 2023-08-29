@@ -1,0 +1,13 @@
+@use 'src/styles/media' as media;
+
+.root {
+  margin: 80px 0;
+
+  @include media.vw-medium-down {
+    margin: 60px 0;
+  }
+
+  @include media.vw-small-down {
+    margin: 40px 0;
+  }
+}

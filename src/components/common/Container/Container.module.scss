@@ -1,0 +1,30 @@
+@use '/src/styles/media' as media;
+@use '/src/styles/variables' as vars;
+
+.root {
+  box-sizing: content-box;
+  margin-inline: auto;
+  max-width: vars.$container-max-width;
+
+  &.isSmallSize {
+    max-width: vars.$container-small-max-width;
+  }
+
+  &.isExpandedSize {
+    max-width: none;
+  }
+}
+
+.inner {
+  --container-inner-padding-inline: #{vars.$container-padding-horizontal};
+
+  padding-inline: var(--container-inner-padding-inline);
+
+  @include media.vw-medium-down {
+    --container-inner-padding-inline: #{vars.$container-padding-horizontal-m};
+  }
+
+  @include media.vw-small-down {
+    --container-inner-padding-inline: #{vars.$container-padding-horizontal-s};
+  }
+}

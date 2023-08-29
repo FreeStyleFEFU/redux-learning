@@ -1,5 +1,5 @@
-import * as UserActionCreators from './user'
+import * as UserActionCreators from "./user";
 
 export default {
-    ...UserActionCreators,
-}
+  ...UserActionCreators,
+};

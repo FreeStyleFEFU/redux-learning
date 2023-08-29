@@ -1,0 +1,23 @@
+@use 'src/styles/vendor/swiper/swiper' as swiper;
+@use 'src/styles/media' as media;
+
+.slide {
+  html:root & {
+    display: flex;
+    margin-right: 24px;
+    width: 180px;
+    height: 180px;
+
+    @include media.vw-medium-down {
+      margin-right: 16px;
+      width: 128px;
+      height: 128px;
+    }
+
+    @include media.vw-small-down {
+      margin-right: 8px;
+      width: 104px;
+      height: 104px;
+    }
+  }
+}
