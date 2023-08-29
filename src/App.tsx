@@ -2,12 +2,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { RoutePath } from './router/routes';
 
-import { Users } from './views/Users/Users';
-import { Home } from './views/Home/Home';
-import { Brands } from './views/Brands/Brands';
+import { Users } from '@views/Users/Users';
+import { Home } from '@views/Home/Home';
+
+import { UserList } from '@components/UserList/UserList';
 
 export const App = () => (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
         <Routes>
             <Route path={RoutePath.Home}>
                 <Home />
@@ -18,7 +19,7 @@ export const App = () => (
             </Route>
 
             <Route path={RoutePath.Brands}>
-                <Brands />
+                <UserList />
             </Route>
         </Routes>
     </BrowserRouter>

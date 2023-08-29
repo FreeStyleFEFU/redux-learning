@@ -1,181 +1,173 @@
 @use 'variables' as variables;
 
 @function vw-from($bp) {
-  @return (min-width: $bp);
+    @return (min-width: $bp);
 }
 
 @function vw-to($bp) {
-  @return (max-width: $bp - 1);
+    @return (max-width: $bp - 1);
 }
 
 @function vh-from($bp) {
-  @return (min-height: $bp);
+    @return (min-height: $bp);
 }
 
 @function vh-to($bp) {
-  @return (max-height: $bp - 1);
+    @return (max-height: $bp - 1);
 }
 
 @mixin vw-xxsmall-down {
-  @media (max-width: variables.$breakpoint-xxsmall - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-xxsmall - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xxsmall-up {
-  @media (min-width: variables.$breakpoint-xxsmall) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-xxsmall) {
+        @content;
+    }
 }
 
 @mixin vw-xsmall-down {
-  @media (max-width: variables.$breakpoint-xsmall - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-xsmall - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xsmall-up {
-  @media (min-width: variables.$breakpoint-xsmall) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-xsmall) {
+        @content;
+    }
 }
 
 @mixin vw-small-down {
-  @media (max-width: variables.$breakpoint-small - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-small - 1) {
+        @content;
+    }
 }
 
 @mixin vw-small-up {
-  @media (min-width: variables.$breakpoint-small) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-small) {
+        @content;
+    }
 }
 
 @mixin vw-small-only {
-  @media (min-width: variables.$breakpoint-xsmall) and (max-width: variables.$breakpoint-small - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-xsmall) and (max-width: variables.$breakpoint-small - 1) {
+        @content;
+    }
 }
 
 @mixin vw-semi-medium-down {
-  @media (max-width: variables.$breakpoint-semi-medium - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-semi-medium - 1) {
+        @content;
+    }
 }
 
 @mixin vw-semi-medium-up {
-  @media (min-width: variables.$breakpoint-semi-medium) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-semi-medium) {
+        @content;
+    }
 }
 
 @mixin vw-semi-medium-only {
-  @media (min-width: variables.$breakpoint-small) and (max-width: variables.$breakpoint-semi-medium - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-small) and (max-width: variables.$breakpoint-semi-medium - 1) {
+        @content;
+    }
 }
 
 @mixin vw-medium-down {
-  @media (max-width: variables.$breakpoint-medium - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-medium - 1) {
+        @content;
+    }
 }
 
 @mixin vw-medium-up {
-  @media (min-width: variables.$breakpoint-medium) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-medium) {
+        @content;
+    }
 }
 
 @mixin vw-medium-only {
-  @media (min-width: variables.$breakpoint-small) and (max-width: variables.$breakpoint-medium - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-small) and (max-width: variables.$breakpoint-medium - 1) {
+        @content;
+    }
 }
 
 @mixin vw-semi-large-down {
-  @media (max-width: variables.$breakpoint-semi-large - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-semi-large - 1) {
+        @content;
+    }
 }
 
 @mixin vw-semi-large-up {
-  @media (min-width: variables.$breakpoint-semi-large) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-semi-large) {
+        @content;
+    }
 }
 
 @mixin vw-semi-large-only {
-  @media (min-width: variables.$breakpoint-medium) and (max-width: variables.$breakpoint-semi-large - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-medium) and (max-width: variables.$breakpoint-semi-large - 1) {
+        @content;
+    }
 }
 
 @mixin vw-large-down {
-  @media (max-width: variables.$breakpoint-large - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-large - 1) {
+        @content;
+    }
 }
 
 @mixin vw-large-up {
-  @media (min-width: variables.$breakpoint-large) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-large) {
+        @content;
+    }
 }
 
 @mixin vw-large-only {
-  @media (min-width: variables.$breakpoint-semi-large) and (max-width: variables.$breakpoint-large - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-semi-large) and (max-width: variables.$breakpoint-large - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xlarge-down {
-  @media (max-width: variables.$breakpoint-xlarge - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-xlarge - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xlarge-up {
-  @media (min-width: variables.$breakpoint-xlarge) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-xlarge) {
+        @content;
+    }
 }
 
 @mixin vw-xlarge-only {
-  @media (min-width: variables.$breakpoint-large) and (max-width: variables.$breakpoint-xlarge - 1) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-large) and (max-width: variables.$breakpoint-xlarge - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xxlarge-down {
-  @media (max-width: variables.$breakpoint-xxlarge - 1) {
-    @content;
-  }
+    @media (max-width: variables.$breakpoint-xxlarge - 1) {
+        @content;
+    }
 }
 
 @mixin vw-xxlarge-up {
-  @media (min-width: variables.$breakpoint-xxlarge) {
-    @content;
-  }
+    @media (min-width: variables.$breakpoint-xxlarge) {
+        @content;
+    }
 }
 
 @mixin media-touch {
-  @media (hover: none) and (pointer: coarse) {
-    @content;
-  }
+    @media (hover: none) and (pointer: coarse) {
+        @content;
+    }
 }
 
 @mixin media-no-touch {
-  @media (hover: hover) and (pointer: fine) {
-    @content;
-  }
-}
-
-@mixin no-touch-hover {
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      @content;
+    @media (hover: hover) and (pointer: fine) {
+        @content;
     }
-  }
 }
