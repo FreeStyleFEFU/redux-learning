@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import { FC } from "react";
 
-import clsx from 'clsx';
+import clsx from "clsx";
 
-import styles from './Spinner.module.scss';
+import styles from "./Spinner.module.scss";
 
 type ClassKey = 'root';
 type Size = 'xLarge' | 'large' | 'default' | 'xSmall';
