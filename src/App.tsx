@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { RoutePath } from './router/routes';
 
@@ -8,16 +8,18 @@ import { Brands } from './views/Brands/Brands';
 
 export const App = () => (
     <BrowserRouter basename="/">
-        <header>
-            <Link to={RoutePath.Users}>Users</Link>
-            <Link to={RoutePath.Brands}>Brands</Link>
-        </header>
         <Routes>
-            <Route path={RoutePath.Home} element={<Home />} />
+            <Route path={RoutePath.Home}>
+                <Home />
+            </Route>
 
-            <Route path={RoutePath.Users} element={<Users />} />
+            <Route path={RoutePath.Users}>
+                <Users />
+            </Route>
 
-            <Route path={RoutePath.Brands} element={<Brands />} />
+            <Route path={RoutePath.Brands}>
+                <Brands />
+            </Route>
         </Routes>
     </BrowserRouter>
 );
