@@ -1,0 +1,47 @@
+@use 'sass:math' as math;
+@use 'src/styles/media' as media;
+@use 'src/styles/variables' as vars;
+@use 'src/styles/utils' as utils;
+
+$big-round-size: 400px;
+
+.bigRound {
+  @include utils.set-size($big-round-size);
+  @include utils.set-transition(transform, 0.5s);
+
+  border: 1px solid vars.$color-black;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(var(--round-rotate));
+}
+
+.item {
+  @include utils.set-transition(trasform);
+
+  left: 50%;
+  height: $big-round-size;
+  position: absolute;
+  transform: rotate(var(--item-rotate-angle)) translateX(-50%);
+  width: 1px;
+}
+
+.miniRound {
+  $mini-round-size: 16px;
+  $mini-round-size-expanded: 70px;
+
+  @include utils.set-size($mini-round-size-expanded);
+  @include utils.set-transition((heigth, width, margin, transform, background-color));
+  @include utils.flex-center;
+
+  background-color: white;
+  border: 1px solid vars.$color-black;
+  border-radius: 50%;
+  color: vars.$color-black;
+  cursor: pointer;
+  font-size: utils.to-rem(10px);
+  left: - math.div($mini-round-size-expanded, 2);
+  margin-top: - math.div($mini-round-size-expanded, 2);
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(var(--mini-round-rotate-angle));
+}

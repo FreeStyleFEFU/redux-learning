@@ -1,0 +1,1 @@
+export const mockHistoryItems = ['Кино', 'Наука', 'Литература', 'Театр', 'История']
