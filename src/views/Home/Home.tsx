@@ -1,13 +1,13 @@
-import {FC} from "react";
+import { FC } from "react";
 
-import {DefaultLayout} from "../../layouts/DefaultLayout/DefaultLayout";
+import { DefaultLayout } from "../../layouts/DefaultLayout/DefaultLayout";
 
-import {Container} from "../../components/common/Container/Container";
-import {BrandsSection} from "../../components/home/BrandsSection/BrandsSection";
-import {HistorySpinningCircle} from "../../components/home/HistorySpinningCircle/HistorySpinningCircle";
+import { Container } from "../../components/common/Container/Container";
+import { BrandsSection } from "../../components/home/BrandsSection/BrandsSection";
+import { HistorySpinningCircle } from "../../components/home/HistorySpinningCircle/HistorySpinningCircle";
 
-import {mockPopularBrands} from "../../mock/brands";
-import {mockHistoryItems} from "../../mock/history";
+import { mockPopularBrands } from "../../mock/brands";
+import { mockHistoryItems } from "../../mock/history";
 
 export const Home: FC = () => (
     <DefaultLayout>

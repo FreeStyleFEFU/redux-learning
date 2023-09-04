@@ -1,4 +1,4 @@
-import {CSSProperties, FC, useState} from 'react';
+import { CSSProperties, FC, useState } from 'react';
 
 import styles from './HistorySpinningCircle.module.scss';
 
@@ -6,7 +6,7 @@ type HistorySpinningCircleProps = {
     items: string[];
 }
 export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => {
-    const {items} = props;
+    const { items } = props;
 
     const [selectedItemIndex, setSelectedItemIndex] = useState<number>(0);
 
