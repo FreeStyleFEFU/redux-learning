@@ -11,7 +11,6 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
     const [selectedItemIndex, setSelectedItemIndex] = useState<number>(0);
 
     const defaultAngle = 360 / items.length;
-
     const differentWithSelectedItemAngle = defaultAngle * selectedItemIndex;
 
     return (
