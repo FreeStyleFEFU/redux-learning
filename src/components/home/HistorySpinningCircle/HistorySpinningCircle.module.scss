@@ -4,10 +4,11 @@
 @use 'src/styles/utils' as utils;
 
 $big-round-size: 400px;
+$transition-duration: 1s;
 
 .bigRound {
   @include utils.set-size($big-round-size);
-  @include utils.set-transition(transform, 0.5s);
+  @include utils.set-transition(transform, $transition-duration);
 
   border: 1px solid vars.$color-black;
   border-radius: 50%;
@@ -16,7 +17,7 @@ $big-round-size: 400px;
 }
 
 .item {
-  @include utils.set-transition(trasform);
+  @include utils.set-transition(trasform, $transition-duration);
 
   left: 50%;
   height: $big-round-size;
@@ -30,7 +31,7 @@ $big-round-size: 400px;
   $mini-round-size-expanded: 70px;
 
   @include utils.set-size($mini-round-size-expanded);
-  @include utils.set-transition((heigth, width, margin, transform, background-color));
+  @include utils.set-transition((heigth, width, margin, transform, background-color), $transition-duration);
   @include utils.flex-center;
 
   background-color: white;
