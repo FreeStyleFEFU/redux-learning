@@ -17,7 +17,7 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
         <div className={styles.root}>
             <div
                 className={styles.bigRound}
-                style={{'--round-rotate': `-${differentWithSelectedItemAngle}deg`} as CSSProperties}
+                style={{'--round-rotate-angle': `-${differentWithSelectedItemAngle}deg`} as CSSProperties}
             >
                 {items.map((item, index) => {
                     const angle = defaultAngle * (index + 1) - defaultAngle;
