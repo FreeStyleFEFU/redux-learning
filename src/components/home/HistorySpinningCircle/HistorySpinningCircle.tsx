@@ -8,16 +8,24 @@ type HistorySpinningCircleProps = {
 export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => {
     const { items } = props;
 
+    const [lastRotateAngle, setLastRotateAngle] = useState<number>(0);
     const [selectedItemIndex, setSelectedItemIndex] = useState<number>(0);
 
     const defaultAngle = 360 / items.length;
-    const differentWithSelectedItemAngle = defaultAngle * selectedItemIndex;
+
+    let roundRotateAngle = defaultAngle * selectedItemIndex;
+
+    const differentWithLastAngle = roundRotateAngle - lastRotateAngle;
+
+    if (Math.abs(differentWithLastAngle) > 180) {
+        roundRotateAngle = lastRotateAngle + differentWithLastAngle - 360
+    }
 
     return (
         <div className={styles.root}>
             <div
                 className={styles.bigRound}
-                style={{'--round-rotate-angle': `-${differentWithSelectedItemAngle}deg`} as CSSProperties}
+                style={{'--round-rotate-angle': `${roundRotateAngle * -1}deg`} as CSSProperties}
             >
                 {items.map((item, index) => {
                     const angle = defaultAngle * (index + 1) - defaultAngle;
@@ -30,9 +38,12 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
                         >
                             <button
                                 type="button"
-                                onClick={() => setSelectedItemIndex(index)}
+                                onClick={() => {
+                                    setLastRotateAngle(roundRotateAngle);
+                                    setSelectedItemIndex(index)
+                                }}
                                 className={styles.miniRound}
-                                style={{'--mini-round-rotate-angle': `${differentWithSelectedItemAngle - angle}deg`} as CSSProperties}
+                                style={{'--mini-round-rotate-angle': `${roundRotateAngle - angle}deg`} as CSSProperties}
                             >
                                 {item}
                             </button>
