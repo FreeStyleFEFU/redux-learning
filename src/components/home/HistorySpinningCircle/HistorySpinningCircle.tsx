@@ -16,13 +16,13 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
 
     const differentWithLastAngle = rotateAngle - lastRotateAngle;
 
-    let formattedRotateAngle = rotateAngle;
+    let optimalRotateAngle = rotateAngle;
 
     if (Math.abs(differentWithLastAngle) > 180) {
         if (differentWithLastAngle > 0) {
-            formattedRotateAngle = rotateAngle - 360;
+            optimalRotateAngle -= 360;
         } else {
-            formattedRotateAngle = rotateAngle + 360;
+            optimalRotateAngle += 360;
         }
     }
 
@@ -30,20 +30,22 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
         <div className={styles.root}>
             <div
                 className={styles.bigRound}
-                style={{'--round-rotate-angle': `${formattedRotateAngle * -1}deg`} as CSSProperties}
+                style={{'--round-rotate-angle': `${optimalRotateAngle * -1}deg`} as CSSProperties}
             >
                 {items.map((item, index) => {
                     const defaultItemAngle = defaultAngle * (index + 1) - defaultAngle;
 
-                    const differentWithCurrentRoundRotateAngle = defaultItemAngle - formattedRotateAngle;
+                    const differentWithCurrentRoundRotateAngle = defaultItemAngle - optimalRotateAngle;
 
-                    let nextAngle = defaultItemAngle;
+                    const fullRotationsCount = parseInt(String((optimalRotateAngle - defaultItemAngle) / 360));
+
+                    let nextAngle = defaultItemAngle + fullRotationsCount * 360;
 
                     if (Math.abs(differentWithCurrentRoundRotateAngle) > 180) {
                         if (differentWithCurrentRoundRotateAngle > 0) {
-                            nextAngle = defaultItemAngle - 360;
+                            nextAngle -= 360;
                         } else {
-                            nextAngle = defaultItemAngle + 360;
+                            nextAngle += 360;
                         }
                     }
 
@@ -57,13 +59,14 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
                                 type="button"
                                 onClick={() => {
                                     setRotateAngle((prevAngle) => {
+                                        console.log(optimalRotateAngle, lastRotateAngle, fullRotationsCount);
                                         lastRotateAngle = prevAngle;
 
                                         return nextAngle
                                     });
                                 }}
                                 className={styles.miniRound}
-                                style={{'--mini-round-rotate-angle': `${formattedRotateAngle - defaultItemAngle}deg`} as CSSProperties}
+                                style={{'--mini-round-rotate-angle': `${optimalRotateAngle - defaultItemAngle}deg`} as CSSProperties}
                             >
                                 {item}
                             </button>
