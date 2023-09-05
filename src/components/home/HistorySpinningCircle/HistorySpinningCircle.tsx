@@ -2,28 +2,29 @@ import { CSSProperties, FC, useState } from 'react';
 
 import styles from './HistorySpinningCircle.module.scss';
 
+let lastRotateAngle = 0;
+
 type HistorySpinningCircleProps = {
     items: string[];
 }
 export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => {
     const { items } = props;
 
-    const [lastRotateAngle, setLastRotateAngle] = useState<number>(0);
     const [rotateAngle, setRotateAngle] = useState<number>(0);
 
     const defaultAngle = 360 / items.length;
 
     const differentWithLastAngle = rotateAngle - lastRotateAngle;
 
-    let formattedRotateAngle = rotateAngle
-
-    console.log(formattedRotateAngle, lastRotateAngle, differentWithLastAngle)
+    let formattedRotateAngle = rotateAngle;
 
     if (Math.abs(differentWithLastAngle) > 180) {
-        formattedRotateAngle = lastRotateAngle + differentWithLastAngle - 360
+        if (differentWithLastAngle > 0) {
+            formattedRotateAngle = rotateAngle - 360;
+        } else {
+            formattedRotateAngle = rotateAngle + 360;
+        }
     }
-
-    console.log(rotateAngle)
 
     return (
         <div className={styles.root}>
@@ -32,22 +33,37 @@ export const HistorySpinningCircle: FC<HistorySpinningCircleProps> = (props) => 
                 style={{'--round-rotate-angle': `${formattedRotateAngle * -1}deg`} as CSSProperties}
             >
                 {items.map((item, index) => {
-                    const angle = defaultAngle * (index + 1) - defaultAngle;
+                    const defaultItemAngle = defaultAngle * (index + 1) - defaultAngle;
+
+                    const differentWithCurrentRoundRotateAngle = defaultItemAngle - formattedRotateAngle;
+
+                    let nextAngle = defaultItemAngle;
+
+                    if (Math.abs(differentWithCurrentRoundRotateAngle) > 180) {
+                        if (differentWithCurrentRoundRotateAngle > 0) {
+                            nextAngle = defaultItemAngle - 360;
+                        } else {
+                            nextAngle = defaultItemAngle + 360;
+                        }
+                    }
 
                     return (
                         <div
                             key={index}
                             className={styles.item}
-                            style={{'--item-rotate-angle': `${angle}deg`} as CSSProperties}
+                            style={{'--item-rotate-angle': `${defaultItemAngle}deg`} as CSSProperties}
                         >
                             <button
                                 type="button"
                                 onClick={() => {
-                                    setLastRotateAngle(formattedRotateAngle);
-                                    setRotateAngle(angle)
+                                    setRotateAngle((prevAngle) => {
+                                        lastRotateAngle = prevAngle;
+
+                                        return nextAngle
+                                    });
                                 }}
                                 className={styles.miniRound}
-                                style={{'--mini-round-rotate-angle': `${formattedRotateAngle - angle}deg`} as CSSProperties}
+                                style={{'--mini-round-rotate-angle': `${formattedRotateAngle - defaultItemAngle}deg`} as CSSProperties}
                             >
                                 {item}
                             </button>
