@@ -29,7 +29,8 @@ export const BrandsSlider: FC<BrandsSliderProps> = (props) => {
       swiperProps={{
         slidesPerView: "auto",
       }}
-      isWithDotPagination
+      hasDotPagination
+      hasNavigation
       hasSmartNavigation
     />
   );

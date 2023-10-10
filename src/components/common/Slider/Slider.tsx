@@ -21,8 +21,8 @@ type SliderProps = {
   items: ReactElement[];
   swiperProps?: Omit<SwiperProps, "className">;
   onSlideChange?(index: number): void;
-  isWithNavigation?: boolean;
-  isWithDotPagination?: boolean;
+  hasNavigation?: boolean;
+  hasDotPagination?: boolean;
   // This flag hides navigation if items fit container.
   // Also hides one of buttons when start/end is reached.
   hasSmartNavigation?: boolean;
@@ -37,15 +37,14 @@ export const Slider: FC<SliderProps> = (props) => {
     swiperProps,
     onSlideChange,
     classes,
-    isWithDotPagination = false,
-    isWithNavigation = true,
+    hasDotPagination = false,
+    hasNavigation = false,
     hasSmartNavigation = false,
   } = props;
 
   const [controlledSwiper, setControlledSwiper] = useState<SwiperClass | null>(
     null
   );
-  const [_, setActiveIndex] = useState(0);
 
   // ! Need to add modules={[..., Autoplay]} to the component to access this feature !
   const toggleAutoplay = (activate: boolean): void => {
@@ -72,26 +71,24 @@ export const Slider: FC<SliderProps> = (props) => {
           setControlledSwiper(swiper);
           // В некоторых случаях при загрузке swiper выставляет начальное состояние некорректно
           setTimeout(() => swiper.update(), 1000);
-          setTimeout(() => setActiveIndex(0), 0); // Initial Index
           if (swiperProps?.onInit !== undefined) swiperProps.onInit(swiper);
         }}
         onSlideChange={(swiper) => {
-          setActiveIndex(swiper.realIndex);
           if (onSlideChange !== undefined) onSlideChange(swiper.realIndex);
         }}
         pagination={{
-          enabled: isWithDotPagination,
-          clickable: isWithDotPagination,
-          dynamicBullets: isWithDotPagination,
+          enabled: hasDotPagination,
+          clickable: hasDotPagination,
+          dynamicBullets: hasDotPagination,
         }}
         className={clsx(styles.swiper, classes?.swiper)}
-        watchOverflow={isWithNavigation && hasSmartNavigation}
+        watchOverflow={hasNavigation && hasSmartNavigation}
         {...swiperProps}
       >
         {items}
       </Swiper>
 
-      {controlledSwiper !== null && items.length > 1 && isWithNavigation && (
+      {controlledSwiper !== null && items.length > 1 && hasNavigation && (
         <div
           className={clsx(styles.navigationWrapper, classes?.navigationWrapper)}
         >
