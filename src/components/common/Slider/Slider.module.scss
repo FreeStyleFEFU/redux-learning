@@ -19,18 +19,6 @@
   position: relative;
 }
 
-.swiper {
-  position: static;
-
-  @include media.vw-medium-down {
-    padding: 0 vars.$container-padding-horizontal-s;
-  }
-
-  @include media.vw-small-down {
-    padding: 0 vars.$container-padding-horizontal;
-  }
-}
-
 // Navigation
 .navigationWrapper {
   display: flex;
@@ -44,6 +32,26 @@
 
   @include media.vw-medium-down {
     display: none;
+  }
+}
+
+.swiper {
+  @include media.vw-medium-down {
+    padding: 0 vars.$container-padding-horizontal-s;
+  }
+
+  @include media.vw-small-down {
+    padding: 0 vars.$container-padding-horizontal;
+  }
+
+  &.hasPagination {
+    $padding: 40px;
+
+    padding-bottom: $padding;
+
+    + .navigationWrapper {
+      height: calc(100% - #{$padding});
+    }
   }
 }
 

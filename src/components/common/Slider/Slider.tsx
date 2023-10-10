@@ -81,7 +81,7 @@ export const Slider: FC<SliderProps> = (props) => {
           clickable: hasDotPagination,
           dynamicBullets: hasDotPagination,
         }}
-        className={clsx(styles.swiper, classes?.swiper)}
+        className={clsx(styles.swiper, hasDotPagination && styles.hasPagination, classes?.swiper)}
         watchOverflow={hasNavigation && hasSmartNavigation}
         {...swiperProps}
       >

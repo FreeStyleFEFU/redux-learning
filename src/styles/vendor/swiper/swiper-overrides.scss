@@ -10,11 +10,7 @@
   --swiper-pagination-bullet-horizontal-gap: 6px;
 
   .swiper-pagination {
-    bottom: -36px;
+    bottom: 0;
     height: 12px;
-
-    @include media.vw-small-down {
-      bottom: -22px;
-    }
   }
 }
